@@ -1,0 +1,6 @@
+# Node dependencies
+mcdose-app/node_modules
+
+# Editor
+mcdose-app/.idea
+mcdose-app/.vscode

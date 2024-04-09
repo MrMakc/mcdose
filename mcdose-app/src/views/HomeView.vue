@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+  import { useApiStore } from '@/stores/api';
+  const fastfood = useApiStore();
+
+  fastfood.getAllFastFood();
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+
   </main>
 </template>

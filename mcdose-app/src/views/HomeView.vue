@@ -17,6 +17,9 @@ const size = ref(0);
 const age = ref(0);
 const activity = ref(0);
 
+const containerForm = ref(false);
+const containerResults = ref(true);
+
 
 
 // Calculation function for kcal
@@ -34,14 +37,16 @@ function calculateMaxKcal() {
   console.log(maxKcal * activity.value);
 
   allowedKcal.value = Math.round(maxKcal * activity.value);
+  containerForm.value = false;
+  containerResults.value = true;
 }
 
 </script>
 
 <template>
   <main>
-    <h2>Informations générales</h2>
-    <div class="general-info">
+    <div v-show="containerForm" class="general-info">
+      <h2>Informations générales</h2>
       <div class="form-container">
         <label>Vous êtes...</label>
         <select v-model="sexe">
@@ -77,7 +82,7 @@ function calculateMaxKcal() {
 
       <p class="disclaimer"><em>La formule d'Harris-Benedict a été utilisée pour calculer votre besoin en apport calorique théorique.</em></p>
     </div>
-    <div class="results">
+    <div v-show="containerResults" class="results">
       <p>Résultat : {{ allowedKcal }} kcal</p>
     </div>
   </main>
